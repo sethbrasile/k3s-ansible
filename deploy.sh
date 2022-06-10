@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook site.yml -i inventory/my-cluster/hosts.ini
+ansible-playbook -i inventory/my-cluster/hosts.ini -e @secrets.enc --ask-vault-pass site.yml
