@@ -1,2 +1,3 @@
 .vagrant
 secrets.enc
+ansible.log
