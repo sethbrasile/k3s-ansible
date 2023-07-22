@@ -8,7 +8,7 @@ This is based on the work from [this fork](https://github.com/212850a/k3s-ansibl
 
 If you want more context on how this works, see:
 
-📄 [Documentation](https://docs.technotim.live/posts/k3s-etcd-ansible/) (including example commands)
+📄 [Documentation](https://technotim.live/posts/k3s-etcd-ansible/) (including example commands)
 
 📺 [Watch the Video](https://www.youtube.com/watch?v=CbkEWcUZ7zM)
 
@@ -28,7 +28,7 @@ on processor architecture:
 
 ## ✅ System requirements
 
-- Deployment environment must have Ansible 2.4.0+.  If you need a quick primer on Ansible [you can check out my docs and setting up Ansible](https://docs.technotim.live/posts/ansible-automation/).
+- Control Node (the machine you are running `ansible` commands) must have Ansible 2.11+ If you need a quick primer on Ansible [you can check out my docs and setting up Ansible](https://technotim.live/posts/ansible-automation/).
 
 - You will also need to install collections that this playbook uses by running `ansible-galaxy collection install -r ./collections/requirements.yml` (important❗)
 
@@ -67,6 +67,8 @@ node
 
 If multiple hosts are in the master group, the playbook will automatically set up k3s in [HA mode with etcd](https://rancher.com/docs/k3s/latest/en/installation/ha-embedded/).
 
+Finally, copy `ansible.example.cfg` to `ansible.cfg` and adapt the inventory path to match the files that you just created.
+
 This requires at least k3s version `1.19.1` however the version is configurable by using the `k3s_version` variable.
 
 If needed, you can also edit `inventory/my-cluster/group_vars/all.yml` to match your environment.
@@ -99,7 +101,7 @@ scp debian@master_ip:~/.kube/config ~/.kube/config
 
 ### 🔨 Testing your cluster
 
-See the commands [here](https://docs.technotim.live/posts/k3s-etcd-ansible/#testing-your-cluster).
+See the commands [here](https://technotim.live/posts/k3s-etcd-ansible/#testing-your-cluster).
 
 ### Troubleshooting
 
